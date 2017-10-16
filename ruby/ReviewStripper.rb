@@ -25,7 +25,9 @@ class ReviewStripper
             #try to find word in blacklist or whitelist
             if whitelist.include?(a[x])
                 out << a[x]
-            elsif !(blacklist.include?(a[x])) then #otherwise look it up
+            elsif !(blacklist.include?(a[x])) then 
+              
+              #otherwise look it up
                 current = DictionaryLookup::Base.define(a[x]).first.part_of_speech
                 if current == "adjective"
                     whitelist << a[x] #add to whitelist
@@ -33,19 +35,10 @@ class ReviewStripper
                 else
                     blacklist << a[x] #add to blacklist
                 end
+                
             end
         end
     return out
-    end
-
-    #<---------------------Code by Alex Hughes Davies------------------------------------>
-
-    #String splitter. E.g. takes sentence and cuts the words out into an Array.
-    #Sentence is a String argument.
-    def stringSplit(s)
-        wordArray = []  #this array is to contain each of the words from the sentence
-        wordArray = s.split(/\W+/)
-        return wordArray
     end
 
     #<--------------------Code by Alex Shmerg Schudel, revised by Sam Whale--------------->
