@@ -31,21 +31,6 @@ class ReviewStripper
     end
 
     #<--------------------Code by Alex Shmerg Schudel, revised by Sam Whale--------------->
-    #Words - The original words (After Stringsplit)
-    #Types - A corresponding array of the types of the words in the 'Words' Array (noun, adjective etc)
-    #Finds the adjectives, strips out other types to Null
-
-    #Puts the adjectives from Words in an array
-    def stripNonAdjectives(words,types)
-        outputList = []
-        # method_WordTypes(types)
-        types.each_index do |i|
-            outputList << words[i] if types[i] == 'adjective'
-        end
-        
-        return outputList
-    end
-
     #counts frequency, returns word followed by the frequency in an array (overall array is 2d)
     def calcFrequency(a) #v1 by alex, v2 by Sam Whale
         frequency = [[]] #2d array for the output
