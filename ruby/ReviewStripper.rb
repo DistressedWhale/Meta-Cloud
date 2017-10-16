@@ -17,32 +17,26 @@ class ReviewStripper
     end
     
     def getWordTypeArr(a)
-        out = []
-        counter = 0
-        target = a.length
-        whitelist = []
-        blacklist = []
+        out = Array.new
+        whitelist = Array.new
+        blacklist = Array.new
 
         a.each_index do |x|
             #try to find word in blacklist or whitelist
             if whitelist.include?(a[x])
-                out << 'adjective'
-            elsif (blacklist.include?(a[x])) or (a[x].length < 4) then
-                out << ' '
-            else
-                #otherwise look it up
-                current = getWordType(a[x])
+                out << a[x]
+            elsif !(blacklist.include?(a[x])) then #otherwise look it up
+                current = DictionaryLookup::Base.define(a[x]).first.part_of_speech
                 if current == "adjective"
                     whitelist << a[x] #add to whitelist
-                    out << current
+                    out << a[x]
                 else
                     blacklist << a[x] #add to blacklist
-                    out << ' '
                 end
             end
         end
     return out
-end
+    end
 
     #<---------------------Code by Alex Hughes Davies------------------------------------>
 
