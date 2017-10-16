@@ -5,17 +5,6 @@ require 'sort_alphabetical'
 class ReviewStripper
     #<---------------------Code by Sam Whale--------------------------------------------->
     include DictionaryLookup
-    def getWordType(word)
-            begin
-                DictionaryLookup::Base.define(word).first.part_of_speech #gets type of word
-            rescue #error handling
-                return 'invalid' #invalid is useful for debugging, and will be converted to a noun later anyway
-            else
-                puts("Got word: " + word) #debug statement
-                return DictionaryLookup::Base.define(word).first.part_of_speech
-            end
-    end
-    
     def getAdjectives(a)
         out = Array.new
         whitelist = Array.new
