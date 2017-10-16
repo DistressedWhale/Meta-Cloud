@@ -16,7 +16,7 @@ class ReviewStripper
             end
     end
     
-    def getWordTypeArr(a)
+    def getAdjectives(a)
         out = Array.new
         whitelist = Array.new
         blacklist = Array.new

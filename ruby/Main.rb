@@ -5,7 +5,7 @@ class Main
     m = Metacritic.new
     rs = ReviewStripper.new
     words = m.getWebsite(reviewURL)
-    words = rs.getWordTypeArr(words.downcase.split(/\W+/))
+    words = rs.getAdjectives(words.downcase.split(/\W+/))
     words = rs.calcFrequency(words)
   end
 end
